@@ -34,6 +34,9 @@ IMPROVEMENTS:
 
   ZOOKEEPER-1897. ZK Shell/Cli not processing commands (stack via michim)
 
+  ZOOKEEPER-2594: Use TLS for downloading artifacts during build
+  (Olaf Flebbe via phunt)
+
 NEW FEATURE:
 
   ZOOKEEPER-1045: Support Quorum Peer mutual authentication via SASL
