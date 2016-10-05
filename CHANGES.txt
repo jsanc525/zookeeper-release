@@ -21,6 +21,8 @@ IMPROVEMENTS:
 
   ZOOKEEPER-1897. ZK Shell/Cli not processing commands (stack via michim)
 
+  ZOOKEEPER-2594: Use TLS for downloading artifacts during build
+  (Olaf Flebbe via phunt)
 
 Release 3.4.6 - 2014-03-10 
 
