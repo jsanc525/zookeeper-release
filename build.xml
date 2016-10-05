@@ -110,7 +110,7 @@
 
     <property name="ivy.version" value="2.2.0"/>
     <property name="ivy.url"
-              value="http://repo2.maven.org/maven2/org/apache/ivy/ivy" />
+              value="https://repo1.maven.org/maven2/org/apache/ivy/ivy" />
     <property name="ivy.home" value="${user.home}/.ant" />
     <property name="ivy.lib" value="${build.dir}/lib"/>
     <property name="ivy.package.lib" value="${build.dir}/package/lib"/>
@@ -118,7 +118,7 @@
     <property name="ivy.jdiff.lib" value="${build.dir}/jdiff/lib"/>
     <property name="ivysettings.xml" value="${basedir}/ivysettings.xml"/>
     <property name="win.pkg.dir" value="${basedir}/src/packages/win"/>
-    <property name="mvnrepo" value="http://repo2.maven.org/maven2"/>
+    <property name="mvnrepo" value="https://repo1.maven.org/maven2"/>
     <property name="tsk.org" value="/org/apache/maven/maven-ant-tasks/"/>
     <property name="ant-task.version" value="2.1.3"/>
     <property name="ant_task_repo_url"
@@ -585,7 +585,7 @@
             </manifest>
         </jar>
     </target>
-    
+
     <!-- ====================================================== -->
     <!-- Make zookeeper-sources.jar                                 -->
     <!-- ====================================================== -->
@@ -695,7 +695,7 @@
       </ivy:makepom>
 
       <copy file="${build.dir}/${final.name}-test.jar"
-            tofile="${dist.maven.dir}/${final.name}-tests.jar"/> 
+            tofile="${dist.maven.dir}/${final.name}-tests.jar"/>
 
       <copy todir="${dist.dir}/bin">
         <fileset dir="bin"/>
@@ -778,7 +778,7 @@
         <fileset file="${build.dir}/${final.name}-sources.jar"/>
         <fileset file="${build.dir}/${final.name}-javadoc.jar"/>
       </copy>
-      
+
       <ivy:makepom settingsRef="${ant.project.name}" ivyfile="${basedir}/ivy.xml"
                    pomfile="${dist.maven.dir}/${name}.pom">
         <mapping conf="default" scope="compile"/>
@@ -830,7 +830,7 @@
         <replacetoken>/tmp/zookeeper</replacetoken>
         <replacevalue>${VAR_DIR}/data</replacevalue>
       </replace>
-  	  
+
       <chmod perm="ugo+x" type="file" parallel="false">
         <fileset dir="${dist.dir}/bin"/>
         <fileset dir="${dist.dir}/sbin"/>
@@ -1046,7 +1046,7 @@
         <property name="dist.dir" value="${dist.dir}"/>
         <fileset file="${contrib.dir}/build.xml"/>
         <fileset file="${recipes.dir}/build.xml"/>
-      </subant>  	
+      </subant>
       <path id="c.lib">
         <fileset dir="${build.dir}">
           <include name="${final.name}-lib.tar.gz"/>
@@ -1151,10 +1151,10 @@
         </tarfileset>
         <tarfileset dir="${build.dir}/c/build/${package.prefix}/include" prefix="${package.prefix}/include">
           <include name="**" />
-        </tarfileset> 
+        </tarfileset>
         <tarfileset dir="${build.dir}/c/build/${package.prefix}/lib" filemode="755" prefix="${package.prefix}/lib">
           <include name="**" />
-        </tarfileset> 
+        </tarfileset>
         <tarfileset dir="${build.dir}/${final.name}/conf" filemode="644" prefix="${package.conf.dir}">
           <include name="**" />
         </tarfileset>
@@ -1242,15 +1242,15 @@
           </exec>
         </sequential>
       </macrodef>
-      <sign-artifact input.file="${dist.maven.dir}/${final.name}.jar" 
+      <sign-artifact input.file="${dist.maven.dir}/${final.name}.jar"
           output.file="${dist.maven.dir}/${final.name}.jar.asc" gpg.passphrase="${gpg.passphrase}"/>
-      <sign-artifact input.file="${dist.maven.dir}/${name}.pom" 
+      <sign-artifact input.file="${dist.maven.dir}/${name}.pom"
           output.file="${dist.maven.dir}/${name}.pom.asc" gpg.passphrase="${gpg.passphrase}"/>
-      <sign-artifact input.file="${dist.maven.dir}/${final.name}-tests.jar" 
+      <sign-artifact input.file="${dist.maven.dir}/${final.name}-tests.jar"
           output.file="${dist.maven.dir}/${final.name}-tests.jar.asc" gpg.passphrase="${gpg.passphrase}"/>
-      <sign-artifact input.file="${dist.maven.dir}/${final.name}-javadoc.jar" 
+      <sign-artifact input.file="${dist.maven.dir}/${final.name}-javadoc.jar"
           output.file="${dist.maven.dir}/${final.name}-javadoc.jar.asc" gpg.passphrase="${gpg.passphrase}"/>
-      <sign-artifact input.file="${dist.maven.dir}/${final.name}-sources.jar" 
+      <sign-artifact input.file="${dist.maven.dir}/${final.name}-sources.jar"
           output.file="${dist.maven.dir}/${final.name}-sources.jar.asc" gpg.passphrase="${gpg.passphrase}"/>
     </target>
 
@@ -1265,7 +1265,7 @@
        <attach file="${dist.maven.dir}/${final.name}-javadoc.jar" type="jar" classifier="javadoc"/>
        <attach file="${dist.maven.dir}/${final.name}-sources.jar" type="jar" classifier="sources"/>
      </artifact:deploy>
-    </target> 
+    </target>
 
     <!-- ====================================================== -->
     <!-- mvn-install. Installing the jar and pom file to .m2    -->
@@ -1275,7 +1275,7 @@
         <typedef resource="org/apache/maven/artifact/ant/antlib.xml"
         uri="antlib:org.apache.maven.artifact.ant" classpathref="mvn-ant-task-classpath"/>
      </target>
- 
+
      <target name="mvn-install" depends="bin-package, mvn-taskdef">
        <echo message="${dist.maven.dir}/${final.name}.pom" />
        <echo message="${dist.maven.dir}/${final.name}.jar" />
@@ -1518,11 +1518,11 @@
 	<!-- yet to implement -->
     </target>
     
-    <target name="test-core-java" depends="test-init, test-category, junit.run"/> 
+    <target name="test-core-java" depends="test-init, test-category, junit.run"/>
 
-    <target name="test-core-cppunit" depends="test-init, test-category, call-test-cppunit"/> 
+    <target name="test-core-cppunit" depends="test-init, test-category, call-test-cppunit"/>
 
-    <target name="test-core" depends="test-core-java, test-core-cppunit"/> 
+    <target name="test-core" depends="test-core-java, test-core-cppunit"/>
 
     <!-- ====================================================== -->
     <!-- Run optional third-party tool targets                  -->
@@ -1677,7 +1677,7 @@
         </cobertura-report>
     </target>
 
-    <target name="checkstyle" depends="checkstyle.check, set-checkstyle-classpath" if="checkstyle.home" 
+    <target name="checkstyle" depends="checkstyle.check, set-checkstyle-classpath" if="checkstyle.home"
 			description="Run optional third-party tool targets">
     	<taskdef resource="checkstyletask.properties">
         	<classpath refid="checkstyle-classpath"/>
@@ -1692,17 +1692,17 @@
     </target>
 
     <target name="checkstyle.check" unless="checkstyle.home">
-    	<fail message="'checkstyle.home' is not defined. Please pass -Dcheckstyle.home=&lt;base of checkstyle installation&gt; 
+    	<fail message="'checkstyle.home' is not defined. Please pass -Dcheckstyle.home=&lt;base of checkstyle installation&gt;
 		to Ant on the command-line." />
     </target>
-    
+
     <target name="set-checkstyle-classpath">
     	<path id="checkstyle-classpath">
         	<fileset dir="${checkstyle.home}">
 			<include name="**/*.jar"/>
          	</fileset>
  	</path>
-    </target>	
+    </target>
 
     <!-- ================================================================== -->
     <!-- Perform audit activities for the release                           -->
