@@ -13,6 +13,8 @@ BUGFIXES:
 
   ZOOKEEPER-1256: ClientPortBindTest is failing on Mac OS X
   (Camille via phunt)
+  
+  ZOOKEEPER-1506: Re-try DNS hostname -> IP resolution if node connection fails
 
 IMPROVEMENTS:
 
